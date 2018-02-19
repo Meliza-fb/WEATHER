@@ -8,11 +8,11 @@ function buscar() {
       };
 
       // Obtener datos para el día de hoy desde la API
-      $.getJSON('https://api.darksky.net/forecast/017bde5b5868271771b080be907d6813/' + postn.lat + ',' + postn.lng + /* ',' + time +*/ '?extend=hourly&callback=?&units=auto&lang=es', function(forecast) {
-        // console.log(forecast);
+      $.getJSON('https://api.darksky.net/forecast/d14e750b5e23581d33168133a780d9f7/' + postn.lat + ',' + postn.lng + /* ',' + time +*/ '?extend=hourly&callback=?&units=auto&lang=es', function(forecast) {
+         /*console.log(forecast);*/
         var contenedor = $('.fore-container');
         var skiconsCurrent = forecast.currently.icovar;
-        var title = $('<h1 class="title">').text('Pronostico');
+        var title = $('<h1 class="title">').text('Pronóstico');
         var temperature = $('<h2 class="temperature">').text(`${Math.floor(forecast.currently.temperature)}°`);// math.floor =Redondear un número a la baja a su entero más cercano:
         var windSpeed = $('<div class="extras">').html(`<p><span class="left-align">Viento</span> <span class="right-align">${forecast.currently.windSpeed}  m/s</span></p>`);
         var humidity = $('<div class="extras">').html(`<p><span class="left-align">Humedad</span> <span class="right-align">${forecast.currently.humidity}  %</span></p>`);
@@ -28,7 +28,8 @@ function buscar() {
         var currentDay = $('<button type="button" class="btn btn-style">').text('Atrás');
         currentDay.on('click', function() {
           btnDailyFunction();
-        });
+          });
+
       });
     });
   }
